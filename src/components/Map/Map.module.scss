@@ -1,7 +1,12 @@
 .map {
+  padding: 20px;
   svg {
     g {
       fill: rgba(0, 0, 0, 0.1);
+      stroke-width: 2px;
+      stroke: white;
+      stroke-linecap: round;
+      stroke-opacity: 0.5;
     }
   }
 }
