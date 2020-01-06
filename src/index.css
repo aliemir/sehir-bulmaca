@@ -4,6 +4,10 @@ body {
   background-color: #28373344;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 #root {
   height: 100%;
 }
