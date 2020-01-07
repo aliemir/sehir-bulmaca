@@ -1,3 +1,5 @@
+@import '../../styles/common';
+
 .map {
   padding: 10px 20px;
   width: 100%;
@@ -5,11 +7,15 @@
     width: 100%;
     height: auto;
     g {
-      fill: rgba(100, 148, 237, 0.1);
+      fill: $map-default-fill;
       stroke-width: 2px;
-      stroke: rgba(100, 148, 237, 1);
+      stroke: $map-stroke-color;
       stroke-linecap: round;
       stroke-opacity: 0.5;
+      transition: 0.3s all ease-in-out;
+    }
+    g[data-known='true'] {
+      fill: $map-known-fill;
     }
   }
 }

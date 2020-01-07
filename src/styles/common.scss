@@ -2,5 +2,19 @@
 
 $background-color: rgb(255, 255, 255);
 
-$input-placeholder-color: hsl(219, 78%, 79%);
-$input-color: hsl(219, 78%, 61%);
+//$input-placeholder-color: hsl(219, 78%, 79%);
+//$input-color: hsl(219, 78%, 61%);
+
+$input-placeholder-color: rgba(125, 75, 75, 0.45);
+$input-color: rgba(125, 75, 75, 1);
+
+$map-default-fill: rgba(15, 15, 45, 0.15);
+$map-known-fill: rgba(15, 200, 15, 0.7);
+$map-stroke-color: rgba(15, 15, 45, 0.7);
+
+$header-primary-color: hsl(0, 100%, 66%);
+$header-secondary-color: hsl(0, 100%, 80%);
+
+$timer-color: rgb(125, 75, 75);
+
+$progress-color: rgb(125, 75, 75);

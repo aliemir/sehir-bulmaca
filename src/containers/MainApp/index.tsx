@@ -10,7 +10,7 @@ const stylez = cssStylez(styles, camelToKebab)
 const MainApp: FunctionComponent = ({}) => {
   return (
     <div className={classNames(stylez.appContainer)}>
-      <Header />
+      <Header current={54} all={81} active={true} min={9} sec={25} />
       <InGame />
     </div>
   )
