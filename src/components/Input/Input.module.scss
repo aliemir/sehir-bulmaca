@@ -1,0 +1,59 @@
+@import '../../styles/common';
+
+.input-container {
+  padding: 0 10px;
+  // &::after {
+  //   content: '';
+  //   display: block;
+  //   width: 50%;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  //   height: 2px;
+  //   background: $input-placeholder-color;
+  //   transition: width 0.3s;
+  // }
+  // &:focus-within::after {
+  //   width: 80%;
+  //   background: $input-color;
+  // }
+}
+
+.text-input {
+  width: 100%;
+  text-align: center;
+  font-size: 16pt;
+  font-family: $default-font;
+  outline: none;
+  border: none;
+  color: $input-color;
+  transition: 0.3s all ease-in-out;
+  animation: scale 0.75s ease-in-out infinite;
+  padding: 0 0 2px;
+}
+
+input[type='text'].text-input:focus {
+  box-shadow: 0px 2px 0px 0 $input-color;
+  animation: none;
+  opacity: 0.75;
+  padding: 8px 0 5px;
+}
+
+input[type='text'].text-input:focus::placeholder {
+  color: white;
+}
+
+input[type='text'].text-input::placeholder {
+  color: $input-placeholder-color;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

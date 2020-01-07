@@ -12,7 +12,11 @@ type InputProps = {
 const Input: FunctionComponent<InputProps> = ({ activeElements }) => {
   return (
     <div className={classNames(stylez.inputContainer)}>
-      <input type='text' className={classNames(stylez.textInput)} />
+      <input
+        type='text'
+        placeholder='Başlamak için tıklayın!'
+        className={classNames(stylez.textInput)}
+      />
     </div>
   )
 }

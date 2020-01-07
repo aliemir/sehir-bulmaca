@@ -1,7 +1,9 @@
+@import './styles/common';
+
 body {
   margin: 0;
   font-family: sans-serif;
-  background-color: #28373344;
+  background-color: $background-color;
 }
 
 * {
