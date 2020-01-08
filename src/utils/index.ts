@@ -1,3 +1,3 @@
 import replaceSpecials from './replaceSpecials'
-
-export { replaceSpecials }
+import provinces from './data'
+export { replaceSpecials, provinces }
