@@ -15,6 +15,7 @@ const RemainingList: FunctionComponent<RemainingListProps> = ({
 }) => {
   return (
     <div className={stylez.remainingList}>
+      <h6>Unuttuklarınız</h6>
       <div className={styles.list}>
         {remainingProvinces.map((el, i) => (
           <span key={i}>{el},</span>

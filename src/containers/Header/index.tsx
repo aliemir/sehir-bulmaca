@@ -38,10 +38,12 @@ const Header: FunctionComponent<HeaderProps> = ({
           </button>
         </div>
       )}
-      <div className={classNames(stylez.logo)}>
-        <h1 className={classNames(stylez.heading)}>{splitted('sehir')}</h1>
-        <h1 className={classNames(stylez.heading)}>{splitted('bulmaca')}</h1>
-      </div>
+      <a className={stylez.logoLink} href='/'>
+        <div className={classNames(stylez.logo)}>
+          <h1 className={classNames(stylez.heading)}>{splitted('sehir')}</h1>
+          <h1 className={classNames(stylez.heading)}>{splitted('bulmaca')}</h1>
+        </div>
+      </a>
       {active && (
         <div className={classNames(stylez.progress)}>
           <span className={classNames(stylez.progressCurrent)}>{current}</span>
