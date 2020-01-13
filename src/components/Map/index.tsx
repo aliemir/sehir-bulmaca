@@ -25,9 +25,10 @@ const Map: FunctionComponent<MapProps> = ({ activeProvinces, provinces }) => {
         xmlSpace='preserve'
       >
         <g id='turkiye'>
-          {provinces.map(p => {
+          {provinces.map((p, index) => {
             return (
               <g
+                key={index}
                 id={p.name}
                 data-plakakodu={p.plaka}
                 data-known={
@@ -35,8 +36,8 @@ const Map: FunctionComponent<MapProps> = ({ activeProvinces, provinces }) => {
                 }
                 data-iladi={p.displayName}
               >
-                {p.path.map(px => (
-                  <path d={px} />
+                {p.path.map((px, pathIndex) => (
+                  <path d={px} key={'path' + pathIndex} />
                 ))}
               </g>
             )

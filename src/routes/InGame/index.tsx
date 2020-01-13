@@ -1,9 +1,5 @@
-import React, { FunctionComponent, Ref } from 'react'
+import React, { FunctionComponent } from 'react'
 import { Map, Input } from '../../components'
-import styles from './InGame.module.scss'
-import cssStylez, { camelToKebab } from 'css-stylez'
-
-const stylez = cssStylez(styles, camelToKebab)
 
 type Province = import('../../utils/data').Province
 

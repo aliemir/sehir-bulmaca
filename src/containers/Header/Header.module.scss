@@ -3,29 +3,44 @@
 .header-wrapper {
   position: relative;
   padding-bottom: 10px;
+  * {
+    user-select: none;
+  }
 }
 
-.timer {
+.yield {
   height: 20px;
   font-family: $default-font;
   color: $timer-color;
   position: absolute;
   left: 0;
   top: 5px;
-  .timer-minutes,
-  .timer-seconds,
-  .timer-dots {
-    font-size: 18px;
-  }
-  .timer-animation {
-    animation: timerdots 1s linear infinite;
+  transition: 0.3s all ease-in-out;
+  button.yield-button {
+    transition: 0.3s all ease-in-out;
+    outline: none;
+    border: none;
+    background: $header-primary-color;
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px 8px;
+    line-height: 18px;
+    &:hover {
+      background-color: darken($header-primary-color, 10);
+    }
+    &:focus,
+    &:active {
+      background-color: darken($header-primary-color, 5);
+    }
   }
 }
 
 .progress {
   height: 20px;
   font-family: $default-font;
-  color: $progress-color;
+  color: $header-secondary-color;
   position: absolute;
   right: 0;
   top: 5px;
@@ -33,6 +48,12 @@
   .progress-all,
   .progress-divider {
     font-size: 18px;
+  }
+  .progress-divider {
+    margin: 0 1px 0 3px;
+  }
+  .progress-current {
+    color: $header-primary-color;
   }
 }
 
@@ -54,16 +75,27 @@ h1.heading {
   line-height: 14pt;
   letter-spacing: -6px;
   margin: 0;
+  cursor: pointer;
+  & > span:nth-child(2n + 1) {
+    color: $header-primary-color;
+  }
+
+  & > span:nth-child(2n + 2) {
+    color: $header-secondary-color;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    & > span:nth-child(2n + 1) {
+      color: $header-secondary-color;
+    }
+    & > span:nth-child(2n + 2) {
+      color: $header-primary-color;
+    }
+  }
 }
 
 h1.heading > span {
   opacity: 0.75;
-}
-
-h1.heading > span:nth-child(2n + 1) {
-  color: $header-primary-color;
-}
-
-h1.heading > span:nth-child(2n + 2) {
-  color: $header-secondary-color;
 }

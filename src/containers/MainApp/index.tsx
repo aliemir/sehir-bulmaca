@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import { InGame } from '../../routes'
 import { Header } from '../'
 import { provinces, replaceSpecials } from '../../utils'
+import OverGame from '../../routes/OverGame'
 
 const stylez = cssStylez(styles, camelToKebab)
 
@@ -16,6 +17,26 @@ enum GameStatus {
 }
 
 const MainApp: FunctionComponent = (/*{}*/) => {
+  let nav: any
+  nav = window.navigator
+  const onShareClick = () => {
+    const shareText =
+      activeProvinces.length !== 81
+        ? `Tüm şehirleri tek seferde yazabilir misin? Ben en fazla ${activeProvinces.length} şehir yazabildim.`
+        : `Tüm şehirleri tek seferde yazabilir misin? Ben hepsini yazdım!`
+    if (nav.share) {
+      nav
+        .share({
+          title: 'Şehir Bulmaca!',
+          text: shareText,
+          url: 'https://sehirbulmaca.now.sh/',
+        })
+        .then(() => console.log('Paylasma basarili'))
+        .catch(error => console.log('Paylasirken hata olustu', error))
+    } else {
+      console.log('web share not supported')
+    }
+  }
   const onSubmitHandler = input => {
     const formatted = replaceSpecials(input)
     const item = provinces.find(p => p.equals(formatted), undefined)
@@ -44,25 +65,34 @@ const MainApp: FunctionComponent = (/*{}*/) => {
     <div className={classNames(stylez.appContainer)}>
       <Header
         current={activeProvinces.length}
-        all={81}
-        active={false}
-        min={9}
-        sec={25}
+        all={provinces.length}
+        active={gameStatus === GameStatus.playing}
+        onYieldClick={() => setGameStatus(GameStatus.over)}
       />
-      <InGame
-        inputActive={!true}
-        onInputFocus={onInputFocus}
-        inputText={
-          gameStatus === GameStatus.idle
-            ? 'Başlamak için tıklayın!'
-            : gameStatus === GameStatus.playing
-            ? 'Devam Etmek için tıklayın!'
-            : 'Paylaşmak için tıklayın!'
-        }
-        provinces={provinces}
-        activeProvinces={activeProvinces}
-        onSubmitHandler={onSubmitHandler}
-      />
+      {gameStatus === GameStatus.over || gameStatus === GameStatus.win ? (
+        <OverGame
+          remainingProvinces={provinces.filter(
+            p => !activeProvinces.includes(p.plaka),
+          )}
+          totalCount={provinces.length}
+          onShareClick={onShareClick}
+        />
+      ) : (
+        <InGame
+          inputActive={!true}
+          onInputFocus={onInputFocus}
+          inputText={
+            gameStatus === GameStatus.idle
+              ? 'Başlamak için tıklayın!'
+              : gameStatus === GameStatus.playing
+              ? 'Devam Etmek için tıklayın!'
+              : 'Paylaşmak için tıklayın!'
+          }
+          provinces={provinces}
+          activeProvinces={activeProvinces}
+          onSubmitHandler={onSubmitHandler}
+        />
+      )}
     </div>
   )
 }

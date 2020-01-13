@@ -1,0 +1,35 @@
+@import '../../styles/common';
+
+.over-game {
+  padding: 0 10px;
+}
+
+.congrats {
+  font-weight: bold;
+  font-family: $default-font;
+  color: $header-secondary-color;
+  font-size: 18pt;
+  padding: 50px 0;
+}
+
+button.share-button {
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16pt;
+  color: white;
+  background: $header-primary-color;
+  user-select: none;
+  font-weight: 700;
+  font-family: $default-font;
+  &:hover {
+    background-color: darken($header-primary-color, 10);
+  }
+  &:focus,
+  &:active {
+    background-color: darken($header-primary-color, 5);
+  }
+}

@@ -25,18 +25,18 @@
   font-family: $default-font;
   outline: none;
   border: none;
-  color: $input-color;
+  color: $header-primary-color;
   transition: 0.3s all ease-in-out;
   animation: scale 0.75s ease-in-out infinite;
   padding: 0 0 2px;
 }
 
 input[type='text'].text-input:focus {
-  box-shadow: 0px 3px 0px -1px $input-color;
+  box-shadow: 0px 3px 0px -1px $header-primary-color;
   animation: none;
   //opacity: 0.75;
   padding: 8px 0 5px;
-  color: $input-color;
+  color: $header-primary-color;
 }
 
 input[type='text'].text-input:focus::placeholder {
@@ -44,7 +44,7 @@ input[type='text'].text-input:focus::placeholder {
 }
 
 input[type='text'].text-input::placeholder {
-  color: $input-placeholder-color;
+  color: $header-secondary-color;
 }
 
 @keyframes scale {

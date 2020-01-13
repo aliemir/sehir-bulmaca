@@ -1,4 +1,5 @@
 import Map from './Map'
 import Input from './Input'
+import RemainingList from './RemainingList'
 
-export { Map, Input }
+export { Map, Input, RemainingList }
