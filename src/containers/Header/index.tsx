@@ -25,11 +25,11 @@ const Header: FunctionComponent<HeaderProps> = ({
   all,
   min,
   sec,
-  active
+  active,
 }) => {
   return (
     <header className={classNames(stylez.headerWrapper)}>
-      <div className={classNames(stylez.timer)}>
+      {/* <div className={classNames(stylez.timer)}>
         <span className={classNames(stylez.timerMinutes)}>{`${
           min < 10 ? '0' : ''
         }${min}`}</span>
@@ -41,7 +41,7 @@ const Header: FunctionComponent<HeaderProps> = ({
           :
         </span>
         <span className={classNames(stylez.timerSeconds)}>{sec}</span>
-      </div>
+      </div> */}
       <div className={classNames(stylez.logo)}>
         <h1 className={classNames(stylez.heading)}>{splitted('sehir')}</h1>
         <h1 className={classNames(stylez.heading)}>{splitted('bulmaca')}</h1>
