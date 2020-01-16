@@ -1,3 +1,5 @@
+import stringSimilarity from 'string-similarity'
+
 export type Province = {
   plaka: string
   name: string
@@ -683,6 +685,8 @@ const provinces: Province[] = [
 export default [
   ...provinces.map(p => ({
     ...p,
-    equals: input => p.name === input || (p.alias && p.alias === input),
+    equals: (input: string): boolean =>
+      stringSimilarity.compareTwoStrings(p.name, input) > 0.7 ||
+      stringSimilarity.compareTwoStrings(p.alias ? p.alias : '', input) > 0.7,
   })),
 ]
